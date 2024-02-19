@@ -35,9 +35,9 @@ class Reservation:
         """Initialization of a reservation in the hotel."""
         self.customer_id = kwargs.get('customer_id')
         self.rez_id = kwargs.get('rez_id')
-        self.customer_sts = kwargs.get('customer_status')
+        self.customer_sts = kwargs.get('customer_sts')
         self.hotel_id = kwargs.get('hotel_id')
-        self.room_num = kwargs.get('room_number')
+        self.room_num = kwargs.get('room_num')
         self.start_date = kwargs.get('start_date')
         self.end_date = kwargs.get('end_date')
 
@@ -58,7 +58,8 @@ class Reservation:
         else:
             print(f"Reservation with ID {rez_id} not found.")
 
-    def create_reservation(self, cls, **kwargs):
+    @classmethod
+    def create_reservation(cls, **kwargs):
         """Creation of a reservation in a hotel."""
         res = cls(**kwargs)
         res.save_data()
