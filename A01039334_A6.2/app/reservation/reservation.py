@@ -52,8 +52,11 @@ class Reservation:
         """Canceling of a reservation in a hotel by removing
         its information from a JSON file."""
         rez_file = f"reservation_{rez_id}.json"
-        os.remove(rez_file)
-        print("Reservation canceled successfully.")
+        if os.path.exists(rez_file):
+            os.remove(rez_file)
+            print("Reservation canceled successfully.")
+        else:
+            print(f"Reservation with ID {rez_id} not found.")
 
     def create_reservation(self, cls, **kwargs):
         """Creation of a reservation in a hotel."""
