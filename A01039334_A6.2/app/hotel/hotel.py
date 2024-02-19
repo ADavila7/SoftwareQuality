@@ -117,7 +117,7 @@ class Hotel:
 
     def display_hotel_information(self):
         """Returns hotel information as a string."""
-        print (f"""Hotel Name: {self.name}, Location: {self.location}""")
+        return f"""Hotel Name: {self.name}, Location: {self.location}"""
 
     def modify_hotel_information(self, new_name=None, new_location=None):
         """Modification of customer's data in a file."""
@@ -132,7 +132,7 @@ class Hotel:
                      room_num, start_date, end_date):
         """Reservation of a room if available."""
         room = next((room for room in self.rooms if room.room_num == room_num
-        and room.room_available), None)
+        and room.room_av), None)
         if room:
             room.res_room()
             reservation = reserve(
@@ -154,7 +154,7 @@ class Hotel:
         try:
             with open(f"reservation_{rez_id}.json", 'r', encoding='utf-8') as f:
                 data = json.load(f)
-            room_num = data['room_number']
+            room_num = data['room_num']
             room = next((room for room in self.rooms if room.room_num == room_num), None)
             if room:
                 room.cancel_room()
