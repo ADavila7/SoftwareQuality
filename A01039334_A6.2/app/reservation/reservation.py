@@ -53,11 +53,13 @@ class Reservation:
         its information from a JSON file."""
         rez_file = f"reservation_{rez_id}.json"
         os.remove(rez_file)
+        print("Reservation canceled successfully.")
 
     def create_reservation(self, cls, **kwargs):
         """Creation of a reservation in a hotel."""
         res = cls(**kwargs)
         res.save_data()
+        print("Reservation created successfully.")
         return res
 
 
