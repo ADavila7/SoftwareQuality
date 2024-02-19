@@ -48,10 +48,12 @@ class Customer:
         """Creation of a new customer and saving of the information into a file."""
         customer = Customer(name, email, customer_id)
         customer.save_data()
+        print("Customer has been created succesfully.")
         return customer
 
     def display_customer_information(self):
         """Display of a customer's information."""
+        print("Customer information:\n")
         print (f"""Name: {self.name}, E-mail: {self.email},
         Customer ID: {self.customer_id}""")
 
@@ -59,6 +61,7 @@ class Customer:
         """Deletion of a customer's information file."""
         customer_file = f"customer_{customer_id}.json"
         os.remove(customer_file)
+        print("Customer has been deleted succesfully.")
 
     def modify_customer_information(self, name=None, email=None):
         """Modification of customer's data in a file."""
@@ -67,6 +70,7 @@ class Customer:
         if email:
             self.email = email
         self.save_data()
+        print("Customer information has been updated.")
 
     def load_customer(self, customer_id):
         """Loading of a customer's information from a file."""
